@@ -2,6 +2,7 @@ group 'com.lorelib.webservice'
 version '1.0'
 
 apply plugin: 'java'
+apply plugin: 'war'
 
 sourceCompatibility = 1.7
 
