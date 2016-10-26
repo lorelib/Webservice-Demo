@@ -9,5 +9,12 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-    <jaxws:endpoint id="helloWorld" implementor="com.lorelib.webservice.cxf.server.HelloWorldImpl" address="/HelloWorld"/>
+    <jaxws:endpoint id="helloWorld" implementor="com.lorelib.webservice.cxf.server.HelloWorldImpl" address="/HelloWorld">
+        <jaxws:inInterceptors>
+            <bean class="org.apache.cxf.interceptor.LoggingInInterceptor" />
+        </jaxws:inInterceptors>
+        <jaxws:outInterceptors>
+            <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
+        </jaxws:outInterceptors>
+    </jaxws:endpoint>
 </beans>
