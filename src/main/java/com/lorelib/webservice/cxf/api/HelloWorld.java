@@ -1,4 +1,4 @@
-package com.lorelib.webservice.cxf.server;
+package com.lorelib.webservice.cxf.api;
 
 import javax.jws.WebService;
 

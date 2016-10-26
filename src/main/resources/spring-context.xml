@@ -6,11 +6,11 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
 
-    <bean id="helloWorld" class="com.lorelib.webservice.cxf.client.HelloWorld"
+    <bean id="helloWorld" class="com.lorelib.webservice.cxf.api.HelloWorld"
           factory-bean="hwFactory" factory-method="create"/>
 
     <bean id="hwFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-        <property name="serviceClass" value="com.lorelib.webservice.cxf.client.HelloWorld"/>
+        <property name="serviceClass" value="com.lorelib.webservice.cxf.api.HelloWorld"/>
         <property name="address" value="http://localhost:8093/services/HelloWorld"/>
     </bean>
 </beans>
