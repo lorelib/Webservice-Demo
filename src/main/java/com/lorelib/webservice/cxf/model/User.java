@@ -1,11 +1,17 @@
 package com.lorelib.webservice.cxf.model;
 
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 /**
  * Created by listening on 2016/10/26.
  */
+@XmlType(name = "user")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name = "user")
 public class User implements Serializable {
+    @XmlElement(name = "id")
+    //@XmlAttribute(name = "id")
     private int id;
     private String username;
     private int age;
