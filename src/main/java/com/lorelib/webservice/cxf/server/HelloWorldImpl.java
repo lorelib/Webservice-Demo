@@ -1,6 +1,7 @@
 package com.lorelib.webservice.cxf.server;
 
 import com.lorelib.webservice.cxf.api.HelloWorld;
+import com.lorelib.webservice.cxf.model.User;
 
 import javax.jws.WebService;
 
@@ -10,7 +11,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "com.lorelib.webservice.cxf.api.HelloWorld")
 public class HelloWorldImpl implements HelloWorld {
     @Override
-    public String sayHello(String msg) {
-        return "Hello " + msg + "!";
+    public String sayHello(User user) {
+        return "Hello " + user.toString() + "!";
     }
 }

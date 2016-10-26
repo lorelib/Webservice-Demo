@@ -1,5 +1,7 @@
 package com.lorelib.webservice.cxf.api;
 
+import com.lorelib.webservice.cxf.model.User;
+
 import javax.jws.WebService;
 
 /**
@@ -7,5 +9,5 @@ import javax.jws.WebService;
  */
 @WebService
 public interface HelloWorld {
-    String sayHello(String msg);
+    String sayHello(User user);
 }
