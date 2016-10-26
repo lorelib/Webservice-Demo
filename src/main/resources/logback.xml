@@ -3,10 +3,24 @@
     <contextName>webservice-study</contextName>
     <property name="LOG_DIR" value="D:\\logs\\soap" />
 
-    <appender name="soap" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <appender name="webservice" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <prudent>true</prudent>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${LOG_DIR}/soap-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_DIR}/webservice-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <MaxFileSize>100MB</MaxFileSize>
+            </TimeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="cxf" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <prudent>true</prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_DIR}/cxf-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <maxHistory>30</maxHistory>
             <TimeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <MaxFileSize>100MB</MaxFileSize>
@@ -23,14 +37,15 @@
         </encoder>
     </appender>
 
-    <logger name="com.lorelib.ws.cxf" level="DEBUG" additivity="false">
-        <appender-ref ref="soap"/>
+    <logger name="com.lorelib.webservice" level="DEBUG" additivity="false">
+        <appender-ref ref="webservice"/>
+    </logger>
+
+    <logger name="org.apache.cxf" level="DEBUG" additivity="false">
+        <appender-ref ref="cxf"/>
     </logger>
 
     <root level="DEBUG">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
-
-
-
