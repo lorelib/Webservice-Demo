@@ -10,7 +10,7 @@ import java.io.Serializable;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "user")
 public class User implements Serializable {
-    @XmlElement(name = "id")
+    @XmlElement(name = "ida")
     //@XmlAttribute(name = "id")
     private int id;
     private String username;
