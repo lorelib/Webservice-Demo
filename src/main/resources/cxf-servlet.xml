@@ -9,12 +9,22 @@
     <import resource="classpath:META-INF/cxf/cxf.xml"/>
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
 
-    <jaxws:endpoint id="helloWorld" implementor="com.lorelib.webservice.cxf.server.HelloWorldImpl" address="/HelloWorld">
+    <jaxws:endpoint id="helloWorld" implementor="com.lorelib.webservice.cxf.server.HelloWorldImpl" address="/HelloWorld"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/">
         <jaxws:inInterceptors>
             <bean class="org.apache.cxf.interceptor.LoggingInInterceptor" />
         </jaxws:inInterceptors>
         <jaxws:outInterceptors>
             <bean class="org.apache.cxf.interceptor.LoggingOutInterceptor" />
         </jaxws:outInterceptors>
+
+        <jaxws:properties>
+            <entry key="soap.env.ns.map">
+                <map>
+                    <entry key="SOAP-ENV" value="http://schemas.xmlsoap.org/soap/envelope/" />
+                </map>
+            </entry>
+            <entry key="disable.outputstream.optimization" value="true"/>
+        </jaxws:properties>
     </jaxws:endpoint>
 </beans>
